@@ -1,0 +1,249 @@
+---
+import Base from '../layouts/Base.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { site } from '../config';
+---
+
+<Base description="Cofradía de San Crispín y San Crispiniano, León. Fe, oficio y hermandad desde finales del siglo XVI. Fiesta de los santos patronos el 25 de octubre.">
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div>
+        <h1 class="hero__name">
+          <span class="hero-line"><span>San Crispín</span></span>
+          <span class="hero-line"><span>y Crispiniano</span></span>
+        </h1>
+        <p class="hero__small">San Juan Bautista</p>
+
+        <div class="hero__foot">
+          <div class="hero__intro">
+            <p>
+              Cofradía de zapateros y curtidores de León desde el siglo XVI. Fe, oficio y hermandad
+              en torno a sus santos patronos.
+            </p>
+            <a class="btn btn--light" href="/hazte-hermano">Hazte hermano</a>
+          </div>
+        </div>
+      </div>
+
+      <figure class="hero__seal">
+        <img
+          src="/escudo.webp"
+          alt="Escudo de la Cofradía de San Crispín y San Crispiniano"
+          width="1095"
+          height="1441"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap statement">
+      <div class="reveal">
+        <h2>Una cofradía de oficio</h2>
+        <p class="statement__aside">
+          La hermandad nació del gremio del calzado y del cuero, y sigue viva en el corazón de León.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <figure class="statement__figure photo-drift">
+          <img
+            src="/img/crispin-grabado.jpg"
+            alt="Grabado de San Crispín y San Crispiniano trabajando en su taller de zapateros"
+            width="620"
+            height="700"
+          />
+          <figcaption>Los santos en su taller. Grabado del siglo XVII.</figcaption>
+        </figure>
+        <p class="statement__text">
+          Dos hermanos zapateros predicaron el Evangelio y vivieron de su oficio. De ellos nació la cofradía de León.
+        </p>
+        <p class="statement__more">
+          San Juan Bautista es su titular secundario. Cuatro siglos después, la hermandad conserva
+          aquel vínculo entre la fe, el oficio y la vida compartida. <a class="link" href="/cofradia">Conoce la cofradía</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--field">
+    <div class="wrap figures">
+      <div class="reveal">
+        <h2>Cuatro siglos, tres titulares</h2>
+        <p class="figures__intro">
+          Una historia que se cuenta en fechas, oficios y personas.
+        </p>
+      </div>
+
+      <div class="figures__list">
+        <div class="figure-row reveal">
+          <p class="figure-row__value">XVI</p>
+          <p>Los zapateros y curtidores de León fundan la cofradía bajo la advocación de sus patronos.</p>
+        </div>
+        <div class="figure-row reveal">
+          <p class="figure-row__value">3</p>
+          <p>San Crispín, San Crispiniano y San Juan Bautista, titulares de la hermandad.</p>
+        </div>
+        <div class="figure-row reveal">
+          <p class="figure-row__value">25 oct</p>
+          <p>Festividad de los santos patronos, fecha central del calendario de la cofradía.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="moments-title">Cinco fechas, cuatro siglos</h2>
+
+      <div class="moments">
+        <div class="moment reveal">
+          <p class="moment__date">Siglo III</p>
+          <div class="moment__body">
+            <h3>Dos hermanos, un oficio</h3>
+            <p>La tradición los sitúa en Soissons, predicando y fabricando calzado para los pobres.</p>
+          </div>
+        </div>
+        <div class="moment reveal">
+          <p class="moment__date">Siglo XVI</p>
+          <div class="moment__body">
+            <h3>Nace la cofradía</h3>
+            <p>El gremio de zapateros y curtidores de León constituye su hermandad.</p>
+          </div>
+        </div>
+        <div class="moment reveal">
+          <p class="moment__date">Siglos XVII y XVIII</p>
+          <div class="moment__body">
+            <h3>La cofradía del gremio</h3>
+            <p>Culto, ayuda mutua y defensa de los intereses del oficio.</p>
+          </div>
+        </div>
+        <div class="moment reveal">
+          <p class="moment__date">Siglo XIX</p>
+          <div class="moment__body">
+            <h3>El fin de los gremios</h3>
+            <p>La hermandad continúa su camino como asociación religiosa.</p>
+          </div>
+        </div>
+        <div class="moment reveal">
+          <p class="moment__date">2026</p>
+          <div class="moment__body">
+            <h3>Una nueva etapa</h3>
+            <p>La cofradía deja de ser gremial, renueva su junta y vuelve a procesionar con San Crispín el 25 de octubre.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="moments__more reveal">
+        <a class="btn btn--light" href="/historia">Leer la historia</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="corpus-stage" id="corpus">
+      <figure class="print print--a reveal">
+        <img
+          src="/img/2026/procesion-salida.webp"
+          alt="Procesión de San Crispín a las puertas de la iglesia, 25 de octubre de 2026"
+          width="1080"
+          height="709"
+          loading="lazy"
+        />
+      </figure>
+
+      <figure class="print print--b reveal">
+        <img
+          src="/img/2026/san-crispin-detalle.webp"
+          alt="Imagen de San Crispín durante la procesión de 2026"
+          width="1080"
+          height="720"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="wrap corpus-stage__inner">
+        <h2 class="corpus-stage__name">
+          <span class="hero-line"><span>Corpus</span></span>
+          <span class="hero-line"><span>Christi</span></span>
+        </h2>
+        <div class="corpus-stage__foot">
+          <p>
+            Cada año, el domingo más próximo al jueves de Corpus, la cofradía acompaña la procesión
+            del Corpus Christi de León.
+          </p>
+          <a class="btn" href="/historia#corpus">Ver los vídeos</a>
+        </div>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap join">
+      <div class="reveal">
+        <h2>Hazte hermano</h2>
+        <p class="join__intro">
+          No hace falta pertenecer al oficio. Basta con compartir la devoción y querer sostener la
+          vida de la cofradía.
+        </p>
+        <a class="btn" href="/ficha-hermano.pdf" download>Descargar la ficha</a>
+      </div>
+
+      <div class="join__panels">
+        <details class="join-panel reveal" open>
+          <summary><h3>Descarga</h3></summary>
+          <div class="join-panel__body">
+            <p>Descarga la ficha de hermano en PDF y ábrela en tu ordenador o teléfono.</p>
+            <a class="btn" href="/ficha-hermano.pdf" download>Descargar ficha</a>
+          </div>
+        </details>
+        <details class="join-panel reveal">
+          <summary><h3>Rellena</h3></summary>
+          <div class="join-panel__body">
+            <p>Completa tus datos personales y firma la solicitud. Puedes hacerlo a mano o en digital.</p>
+          </div>
+        </details>
+        <details class="join-panel reveal">
+          <summary><h3>Envía</h3></summary>
+          <div class="join-panel__body">
+            <p>
+              Adjunta la ficha en un correo a
+              <a class="link" href={`mailto:${site.email}`}>{site.email}</a>. La secretaría te
+              confirmará la recepción.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-stage">
+    <div class="wrap">
+      <p class="contact-stage__top">
+        Escríbenos para altas, cuotas, cambios de datos.
+      </p>
+      <h2 class="contact-stage__mail">
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </h2>
+      <div class="contact-stage__foot">
+        <p>León, España</p>
+        <SocialLinks />
+      </div>
+    </div>
+  </section>
+
+  <a class="cta-band" href="/hazte-hermano">
+    <div class="cta-band__top">
+      <p>Descarga la ficha, rellénala y forma parte de la cofradía.</p>
+      <svg
+        class="cta-band__arrow"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <path d="M12 36 36 12M16 12h20v20"></path>
+      </svg>
+    </div>
+    <h2 class="cta-band__word">Hermano</h2>
+  </a>
+</Base>

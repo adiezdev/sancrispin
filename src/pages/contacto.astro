@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../config';
+---
+
+<Base
+  title="Contacto"
+  description="Contacta con la Cofradía de San Crispín y San Crispiniano de León por correo electrónico, Instagram o Facebook."
+>
+  <PageHero
+    title="Hablemos"
+    lead="Para altas de hermanos, cuotas, actos o cualquier consulta sobre la cofradía, estamos a tu disposición."
+  />
+
+  <section class="section section--surface">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Estamos a tu disposición</h2>
+
+        <dl class="contact-list">
+          <div class="contact-item">
+            <dt>Correo</dt>
+            <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+          </div>
+          <div class="contact-item">
+            <dt>Instagram</dt>
+            <dd>
+              <a href={site.instagram} target="_blank" rel="noopener noreferrer">@sancrispinleon</a>
+            </dd>
+          </div>
+          <div class="contact-item">
+            <dt>Facebook</dt>
+            <dd>
+              <a href={site.facebook} target="_blank" rel="noopener noreferrer">/sancrispinleon</a>
+            </dd>
+          </div>
+          <div class="contact-item">
+            <dt>Dónde</dt>
+            <dd><span>León, España</span></dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="contact-card">
+        <figure class="contact-card__media">
+          <img
+            src="/videos/corpus-3.jpg"
+            alt="La cofradía en la procesión del Corpus Christi de León"
+            width="480"
+            height="270"
+            loading="lazy"
+          />
+        </figure>
+        <h2>¿En qué podemos ayudarte?</h2>
+        <p>
+          Para el alta de hermanos, cambios de datos, cuotas o acceso al portal privado, utiliza el
+          correo indicando el motivo de tu consulta. Te responderemos lo antes posible.
+        </p>
+        <a class="btn btn--gold" href={`mailto:${site.email}?subject=${encodeURIComponent('Consulta a la cofradía')}`}>
+          Enviar un correo
+        </a>
+        <p>
+          También puedes seguirnos y escribirnos por redes sociales: <a
+            href={site.instagram}
+            target="_blank"
+            rel="noopener noreferrer">Instagram</a
+          > y <a href={site.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <h2>Consultas habituales</h2>
+        <figure class="split__figure split__figure--wide">
+          <img
+            src="/videos/corpus-1.jpg"
+            alt="Procesión del Corpus Christi de León"
+            width="480"
+            height="270"
+            loading="lazy"
+          />
+          <figcaption>La custodia en la calle.</figcaption>
+        </figure>
+      </div>
+
+      <div class="prose">
+        <p>
+          <strong>Altas de hermanos.</strong> Descarga la <a href="/ficha-hermano.pdf" download
+            >ficha de hermano</a
+          >, rellénala y envíala por correo a <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+        <p>
+          <strong>Cuotas y datos personales.</strong> Para actualizar tus datos o consultar tu
+          situación, escribe a la secretaría desde el correo que tengas registrado.
+        </p>
+
+        <figure class="split__figure split__figure--wide">
+          <img
+            src="/videos/corpus-2.jpg"
+            alt="Procesión del Corpus Christi de León"
+            width="480"
+            height="270"
+            loading="lazy"
+          />
+          <figcaption>La procesión del Corpus por León.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</Base>

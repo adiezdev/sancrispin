@@ -1,0 +1,194 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../config';
+
+const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Ficha de hermano')}`;
+
+const faq = [
+  {
+    q: '¿Hace falta ser zapatero o curtidor?',
+    a: 'No. La cofradía nace del antiguo gremio del calzado y del cuero, pero hoy está abierta a cualquier persona que desee compartir su fe y su devoción a los patronos.',
+  },
+  {
+    q: '¿Hay una cuota de hermano?',
+    a: 'Sí. La aportación anual se destina a sostener los cultos, el patrimonio y la caridad de la cofradía. Consulta el importe vigente con la secretaría.',
+  },
+  {
+    q: '¿Puedo participar sin ser hermano?',
+    a: 'Puedes acompañarnos en los actos públicos y en las celebraciones. Para formar parte de la vida interna de la cofradía es necesario formalizar el alta.',
+  },
+  {
+    q: '¿Cuándo puedo solicitar el alta?',
+    a: 'Puedes enviar la ficha rellena en cualquier momento del año. La secretaría te indicará el momento adecuado para completar la incorporación.',
+  },
+  {
+    q: '¿Cómo envío la ficha?',
+    a: `Descárgala, rellénala y adjúntala en un correo a ${site.email}. Si lo prefieres, puedes entregarla en mano a la secretaría.`,
+  },
+];
+
+const faqJsonLd = {
+  '@type': 'FAQPage',
+  mainEntity: faq.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<Base
+  title="Hazte hermano"
+  description="Cómo formar parte de la Cofradía de San Crispín y San Crispiniano de León. Solicita información sobre el alta de hermano."
+  jsonLd={[faqJsonLd]}
+>
+  <PageHero
+    title="Una puerta abierta"
+    lead="Formar parte de la cofradía es sumarse a una historia de fe y de oficio que se remonta a finales del siglo XVI."
+  />
+
+  <section class="section section--surface">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <h2>Tres pasos para incorporarte</h2>
+          <figure class="split__figure split__figure--wide">
+            <img
+              src="/videos/corpus-3.jpg"
+              alt="La cofradía en la procesión del Corpus Christi de León"
+              width="480"
+              height="270"
+              loading="lazy"
+            />
+            <figcaption>La cofradía acompaña la custodia del Corpus.</figcaption>
+          </figure>
+        </div>
+        <div class="prose">
+          <p>
+            No es necesario pertenecer al sector del calzado. La cofradía está abierta a quienes
+            deseen compartir su devoción a San Crispín y San Crispiniano y sostener su vida de
+            hermandad.
+          </p>
+          <p>
+            Para solicitar el alta, descarga la ficha de hermano, rellénala y envíala por correo a <a
+              href={`mailto:${site.email}`}>{site.email}</a
+            >. La secretaría revisará tu solicitud y te responderá con los siguientes pasos.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="/ficha-hermano.pdf" download>Descargar ficha</a>
+          </div>
+        </div>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h3>Descarga la ficha</h3>
+          <p>
+            Descarga el <a href="/ficha-hermano.pdf" download>formulario de alta de hermano</a> en
+            PDF.
+          </p>
+        </li>
+        <li>
+          <h3>Rellénala</h3>
+          <p>
+            Completa tus datos personales y firma la solicitud. Puedes rellenarla a mano o
+            digitalmente.
+          </p>
+        </li>
+        <li>
+          <h3>Envíala por correo</h3>
+          <p>
+            Adjunta la ficha a un correo dirigido a <a href={`mailto:${site.email}`}
+              >{site.email}</a
+            >. La secretaría te confirmará la recepción.
+          </p>
+        </li>
+      </ol>
+
+      <figure class="split__figure split__figure--wide">
+        <img
+          src="/videos/corpus-2.jpg"
+          alt="Procesión del Corpus Christi de León"
+          width="480"
+          height="270"
+          loading="lazy"
+        />
+        <figcaption>La procesión recorre el centro de León.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Antes de dar el paso</h2>
+        <figure class="split__figure split__figure--wide">
+          <img
+            src="/videos/corpus-4.jpg"
+            alt="Procesión del Corpus Christi de León"
+            width="480"
+            height="270"
+            loading="lazy"
+          />
+          <figcaption>Hermanos y devotos en la procesión.</figcaption>
+        </figure>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>¿Hace falta ser zapatero o curtidor?</summary>
+          <p>
+            No. La cofradía nace del antiguo gremio del calzado y del cuero, pero hoy está abierta a
+            cualquier persona que desee compartir su fe y su devoción a los patronos.
+          </p>
+        </details>
+        <details>
+          <summary>¿Hay una cuota de hermano?</summary>
+          <p>
+            Sí. La aportación anual se destina a sostener los cultos, el patrimonio y la caridad de la
+            cofradía. Consulta el importe vigente con la secretaría.
+          </p>
+        </details>
+        <details>
+          <summary>¿Puedo participar sin ser hermano?</summary>
+          <p>
+            Puedes acompañarnos en los actos públicos y en las celebraciones. Para formar parte de la
+            vida interna de la cofradía es necesario formalizar el alta.
+          </p>
+        </details>
+        <details>
+          <summary>¿Cuándo puedo solicitar el alta?</summary>
+          <p>
+            Puedes enviar la ficha rellena en cualquier momento del año. La secretaría te indicará el
+            momento adecuado para completar la incorporación.
+          </p>
+        </details>
+        <details>
+          <summary>¿Cómo envío la ficha?</summary>
+          <p>
+            Descárgala, rellénala y adjúntala en un correo a <a href={`mailto:${site.email}`}
+              >{site.email}</a
+            >. Si lo prefieres, puedes entregarla en mano a la secretaría.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="portal-band">
+    <div class="wrap portal-band__inner">
+      <div>
+        <h2>Descarga la ficha</h2>
+        <p>
+          Rellénala con calma y envíala por correo. Si tienes cualquier duda, la secretaría está a tu
+          disposición.
+        </p>
+      </div>
+      <div class="portal-band__actions">
+        <a class="btn btn--gold" href="/ficha-hermano.pdf" download>Descargar ficha</a>
+        <a class="btn btn--ghost" href={mailto}>Escribir a la cofradía</a>
+      </div>
+    </div>
+  </section>
+</Base>

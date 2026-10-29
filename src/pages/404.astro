@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Base
+  title="Página no encontrada"
+  description="La página que buscas no existe. Vuelve al inicio o consulta la historia y la galería de la cofradía."
+  noindex
+>
+  <PageHero
+    title="Página no encontrada"
+    lead="La dirección no existe o ha cambiado. Puedes volver al inicio o consultar la historia y la galería."
+  />
+
+  <section class="section section--surface">
+    <div class="wrap">
+      <p class="gallery__more">
+        <a class="btn" href="/">Volver al inicio</a>
+        <a class="btn btn--ghost" href="/contacto">Contactar</a>
+      </p>
+    </div>
+  </section>
+</Base>

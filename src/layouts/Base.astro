@@ -1,0 +1,216 @@
+---
+import '../styles/global.css';
+import '../styles/pages.css';
+import { site } from '../config';
+import SocialLinks from '../components/SocialLinks.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Cofradía de San Crispín y San Crispiniano, León. Fe, oficio y hermandad desde finales del siglo XVI.',
+  jsonLd = [],
+  noindex = false,
+} = Astro.props;
+
+const nav = [
+  { href: '/', label: 'Inicio', external: false },
+  { href: '/cofradia', label: 'Cofradía', external: false },
+  { href: '/historia', label: 'Historia', external: false },
+  { href: '/galeria', label: 'Galería', external: false },
+  { href: '/hazte-hermano', label: 'Hazte hermano', external: false },
+  { href: site.portalUrl, label: 'Portal', external: true },
+  { href: '/contacto', label: 'Contacto', external: false },
+];
+
+const current = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string) =>
+  href === '/' ? current === '/' : current === href || current.startsWith(`${href}/`);
+
+const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · León`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL('/og-image.jpg', site.url).href;
+const organizationId = new URL('/#organization', site.url).href;
+
+const jsonLdGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ReligiousOrganization',
+      '@id': organizationId,
+      name: site.name,
+      alternateName: 'Cofradía de San Crispín y San Crispiniano',
+      url: site.url,
+      logo: new URL('/escudo.webp', site.url).href,
+      image: ogImage,
+      email: site.email,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'León',
+        addressRegion: 'Castilla y León',
+        addressCountry: 'ES',
+      },
+      sameAs: [site.instagram, site.facebook],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': new URL('/#website', site.url).href,
+      url: site.url,
+      name: site.name,
+      inLanguage: 'es-ES',
+      publisher: { '@id': organizationId },
+    },
+    ...jsonLd,
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0f2a1b" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Procesión de San Crispín por las calles de León" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Imbue:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="/" aria-label={`${site.name}, inicio`}>
+          <img class="brand__crest" src="/escudo.webp" alt="" width="1095" height="1441" />
+          <span class="brand__text">
+            <span class="brand__small">Cofradía de</span>
+            <span class="brand__name">San Crispín y Crispiniano<span class="brand__name-extra"> y San Juan Bautista</span></span>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegación principal">
+          <ul>
+            {nav.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={{ active: isActive(item.href) }}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <details class="mobile-menu">
+          <summary>
+            <span>Menú</span>
+            <span class="mobile-menu__bars" aria-hidden="true"><i></i><i></i></span>
+          </summary>
+          <div class="mobile-menu__panel">
+            <nav aria-label="Navegación principal en móvil">
+              <ul>
+                {nav.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class:list={{ active: isActive(item.href) }}
+                      aria-current={isActive(item.href) ? 'page' : undefined}
+                      target={item.external ? '_blank' : undefined}
+                      rel={item.external ? 'noopener noreferrer' : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div class="mobile-menu__foot">
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <SocialLinks />
+            </div>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <nav class="footer-nav" aria-label="Navegación del pie">
+            <ul>
+              <li><a href="/cofradia">La cofradía</a></li>
+              <li><a href="/historia">Nuestra historia</a></li>
+              <li><a href="/galeria">Galería</a></li>
+              <li><a href="/hazte-hermano">Hazte hermano</a></li>
+              <li>
+                <a href={site.portalUrl} target="_blank" rel="noopener noreferrer">Portal privado</a>
+              </li>
+              <li><a href="/contacto">Contacto</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-contact">
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <p>León, España</p>
+            <SocialLinks />
+          </div>
+        </div>
+
+        <p class="footer-name" aria-hidden="true">
+          <span>San Crispín y Crispiniano</span>
+          <span class="footer-name__small">y San Juan Bautista</span>
+        </p>
+
+        <div class="footer-meta">
+          <p>© {new Date().getFullYear()} {site.name}</p>
+          <p>Desarrollado por <a href="https://adiez.dev">Alejandro Díez</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import '../scripts/motion.js';
+    </script>
+  </body>
+</html>

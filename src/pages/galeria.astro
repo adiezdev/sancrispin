@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+
+const photos = [
+  { src: 'procesion-salida', w: 1080, h: 709, caption: 'Procesión por la iglesia de San Martín' },
+  { src: 'san-crispin-detalle', w: 1080, h: 720, caption: 'La imagen de San Crispín.' },
+  { src: 'imposicion-baston', w: 1080, h: 1620, caption: 'Toma de posesión' },
+  { src: 'junta-gobierno', w: 1600, h: 738, caption: 'La junta de gobierno, tras la toma de posesión.' },
+  { src: 'procesion-blanco-negro', w: 1080, h: 670, caption: 'La procesión, en blanco y negro.' },
+  { src: 'procesion-hombros', w: 1440, h: 1800, caption: 'San Crispín, portado a hombros por las calles de León.' },
+  { src: 'herramientas-oficio', w: 1400, h: 1750, caption: 'Horquetas, a las puertas de la iglesia.' },
+  { src: 'acto-interior', w: 1080, h: 685, caption: 'Acto en el interior de la iglesia.' },
+  { src: 'procesion-estandarte', w: 1080, h: 740, caption: 'El paso por la plaza mayor' },
+  { src: 'procesion-comitiva', w: 1080, h: 707, caption: 'La comitiva durante el recorrido.' },
+  { src: 'san-crispin-flores', w: 1080, h: 1625, caption: 'La imagen de San Crispín entre flores.' },
+  { src: 'cofradia-calle', w: 1080, h: 670, caption: 'La cofradía en la calle.' },
+];
+---
+
+<Base
+  title="Galería"
+  description="Galería de la procesión y la toma de posesión de la Cofradía de San Crispín y San Crispiniano de León, 25 de octubre de 2026."
+>
+  <PageHero
+    title="La fiesta de 2026"
+    lead="Procesión y toma de posesión de la nueva junta de gobierno, el 25 de octubre de 2026 en León."
+  />
+
+  <section class="section section--surface">
+    <div class="wrap">
+      <p class="gallery-intro">
+        La cofradía volvió a procesionar con San Crispín el día de su fiesta. Estas imágenes
+        recogen la salida, el recorrido por las calles de León y la toma de posesión de la nueva
+        junta de gobierno.
+      </p>
+
+      <div class="gallery">
+        {photos.map((photo) => (
+          <figure>
+            <img
+              src={`/img/2026/${photo.src}.webp`}
+              alt={photo.caption}
+              width={photo.w}
+              height={photo.h}
+              loading="lazy"
+            />
+            <figcaption>{photo.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <p class="gallery-credits">Fotografías: Ana Cabero y Nael Blanco.</p>
+    </div>  
+  </section>
+
+  <section class="portal-band">
+    <div class="wrap portal-band__inner">
+      <div>
+        <h2>Hazte hermano</h2>
+        <p>Si compartes nuestra devoción, estaremos encantados de recibirte.</p>
+      </div>
+      <a class="btn btn--gold" href="/hazte-hermano">Quiero ser hermano</a>
+    </div>
+  </section>
+</Base>

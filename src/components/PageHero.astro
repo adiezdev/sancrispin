@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  lead: string;
+}
+
+const { title, lead } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="wrap page-hero__inner">
+    <div>
+      <h1>{title}</h1>
+      <p class="page-hero__lead">{lead}</p>
+    </div>
+    <img class="page-hero__seal" src="/escudo.webp" alt="" width="1095" height="1441" />
+  </div>
+</section>
