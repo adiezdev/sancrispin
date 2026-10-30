@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   lead: string;
+  isVisibleEmblem?: boolean
 }
 
-const { title, lead } = Astro.props;
+const { title, lead, isVisibleEmblem = true } = Astro.props;
 ---
 
 <section class="page-hero">
@@ -13,6 +14,8 @@ const { title, lead } = Astro.props;
       <h1>{title}</h1>
       <p class="page-hero__lead">{lead}</p>
     </div>
-    <img class="page-hero__seal" src="/escudo.webp" alt="" width="1095" height="1441" />
+    {
+      isVisibleEmblem && <img class="page-hero__seal" src="/escudo.webp" alt="" width="1095" height="1441" />
+    }
   </div>
 </section>

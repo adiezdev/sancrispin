@@ -16,6 +16,14 @@ const photos = [
   { src: 'san-crispin-flores', w: 1080, h: 1625, caption: 'La imagen de San Crispín entre flores.' },
   { src: 'cofradia-calle', w: 1080, h: 670, caption: 'La cofradía en la calle.' },
 ];
+
+const photosCorupus =[
+    { src: 'comitiva-de-san-crispin', w: 1440, h: 1800, caption: 'Procesión por la iglesia de San Martín' },
+    { src: 'preparacion-del-paso', w: 1440, h: 1800, caption: 'Procesión por la iglesia de San Martín' },
+    { src: 'san-crispin-durante-el-corpus', w: 1440, h: 1800, caption: 'Procesión por la iglesia de San Martín' },
+    { src: 'sancrispin-por-la-procesion', w: 1440, h: 1800, caption: 'Procesión por la iglesia de San Martín' },
+
+]
 ---
 
 <Base
@@ -30,7 +38,7 @@ const photos = [
   <section class="section section--surface">
     <div class="wrap">
       <p class="gallery-intro">
-        La cofradía volvió a procesionar con San Crispín el día de su fiesta. Estas imágenes
+        La cofradía procesiona a San Crispín el día de su fiesta por primera vez. Estas imágenes
         recogen la salida, el recorrido por las calles de León y la toma de posesión de la nueva
         junta de gobierno.
       </p>
@@ -53,7 +61,36 @@ const photos = [
       <p class="gallery-credits">Fotografías: Ana Cabero y Nael Blanco.</p>
     </div>  
   </section>
+  <PageHero
+    title="Corpus Christi"
+    lead="San Crispín durante el recorrido del Corpus Christi"
+    isVisibleEmblem={false}
+  />
 
+  <section class="section section--surface">
+    <div class="wrap">
+      <p class="gallery-intro">
+        La Cofradía de San Crispín durante el recorrido del Corpus Christi.
+      </p>
+
+      <div class="gallery">
+        {photosCorupus.map((photo) => (
+          <figure>
+            <img
+              src={`/img/corpus-2026/${photo.src}.webp`}
+              alt={photo.caption}
+              width={photo.w}
+              height={photo.h}
+              loading="lazy"
+            />
+            <figcaption>{photo.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <p class="gallery-credits">Fotografías: Ana Cabero y Nael Blanco.</p>
+    </div>  
+  </section>
   <section class="portal-band">
     <div class="wrap portal-band__inner">
       <div>
